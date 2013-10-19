@@ -203,6 +203,11 @@ header {
 	position:absolute;
 	top: 0px;
 	left: 0px;
+	background:url(../image/play.png) no-repeat top center;
+	filter: alpha(opacity=0);
+	-moz-opacity: 0.00;
+	-khtml-opacity: 0.00;
+	opacity: 0.00;
 }
 .pright {
 	width: 60px;
@@ -210,7 +215,30 @@ header {
 	position:absolute;
 	top: 0px;
 	right: 0px;
+	background:url(../image/play.png) no-repeat top center;
+	filter: alpha(opacity=0);
+	-moz-opacity: 0.00;
+	-khtml-opacity: 0.00;
+	opacity: 0.00;
 }
+
+.loadingWrap{
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+	z-index:10002;
+}
+.loadingWrap img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -150px;
+}
+
 /* =========================================================
  parts style
 ========================================================= */

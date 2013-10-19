@@ -198,21 +198,11 @@ $(function() {
 	$('#p2-title').dotdotdot();
 	
     // initiallize videos
-    var videos = [ 
-    		// {videoURL:'zSygB1VwZpU', containment:'self', autoPlay:false, mute:false, startAt:0, opacity:1, showControls:true, addRaster:true},
-    		{videoURL:'FOIjvHjK0Rw', containment:'self', autoPlay:false, mute:false, startAt:0, opacity:1, showControls:true, addRaster:true},
-    		{videoURL:'7_hRGlByHm4', containment:'self', autoPlay:true, mute:false, startAt:0, opacity:1, showControls:true, addRaster:true},
-    		{videoURL:'iI3qo9NXLI8', containment:'self', autoPlay:true, mute:false, startAt:0, opacity:1, showControls:true, addRaster:true},
-    		{videoURL:'zNvsIrj0JJA', containment:'self', autoPlay:true, mute:false, startAt:0, opacity:1, showControls:true, addRaster:true},
-    		{videoURL:'EDir9-UoPjo', containment:'self', autoPlay:true, mute:false, startAt:0, opacity:1, showControls:true, addRaster:true},
-    		{videoURL:'Rns0_x40EEE', containment:'self', autoPlay:true, mute:false, startAt:0, opacity:1, showControls:true, addRaster:true},
-    		{videoURL:'u-uf_AEcXEs', containment:'self', autoPlay:true, mute:false, startAt:0, opacity:1, showControls:true, addRaster:true},
-    		{videoURL:'kkIZHYrL4v4', containment:'self', autoPlay:true, mute:false, startAt:0, opacity:1, showControls:true, addRaster:true},
-    		{videoURL:'heJBwBUStXU', containment:'self', autoPlay:true, mute:false, startAt:0, opacity:1, showControls:true, addRaster:true},
-			{videoURL:'3RBb4375FAk', containment:'self', autoPlay:true, mute:false, startAt:0, opacity:1, showControls:true, addRaster:true},	
-    		{videoURL:'VIrBecB746c', containment:'self', autoPlay:true, mute:false, startAt:0, opacity:1, showControls:true, addRaster:true},
-            {videoURL:'OBl4pp0Sfko', containment:'self', autoPlay:true, mute:false, startAt:0, opacity:1, showControls:true, addRaster:true}
-            
+    var videos1 = [ 
+            {videoURL:'OBl4pp0Sfko', containment:'self', autoPlay:false, mute:false, startAt:0, opacity:1, showControls:true, addRaster:true}
+        ];
+	var videos2 = [ 
+    		{videoURL:'heJBwBUStXU', containment:'self', autoPlay:false, mute:false, startAt:0, opacity:1, showControls:true, addRaster:true}
         ];
 		
     $('#player1, #player2').tooltipster({
@@ -224,7 +214,7 @@ $(function() {
 	});
 		
     // initiallize playlist
-	$("#player1").YTPlaylist(videos, false, function(video){
+	$("#player1").YTPlaylist(videos1, false, function(video){
 		
 		var p1title = $('#p1-title');
 		var p1duration = $('#p1-duration');
@@ -245,7 +235,7 @@ $(function() {
 		
 	});
 	
-	$("#player2").YTPlaylist(videos, false, function(video){
+	$("#player2").YTPlaylist(videos2, false, function(video){
 		
 		var p2title = $('#p2-title');
 		var p2duration = $('#p2-duration');
@@ -288,7 +278,7 @@ $(function() {
     	opacity: 0.6,
     	connectWith:"#playlist",
     	beforeStop:function(event, ui){
-    		
+			
     		var item = ui.item;
     		
     		// hide add
@@ -315,6 +305,11 @@ $(function() {
     $("#result li").draggable({
 		connectToSortable: "#playlist",
 		revert: "invalid"
+	});
+	
+	// when loaded events
+	$(window).load(function(){
+    	$(".loadingWrap").fadeOut(1000);
 	});
 	
 	// keyup events
@@ -485,10 +480,19 @@ $(function() {
 	/* AutoComplete */
 	$("#q").autocomplete({
 		source: function(request, response){
-			var apiKey = 'AI39si7ZLU83bKtKd4MrdzqcjTVI3DK9FvwJR6a4kB_SW_Dbuskit-mEYqskkSsFLxN5DiG1OBzdHzYfW0zXWjxirQKyxJfdkg';
+			
+			var lang = function() {
+			  try {
+				return (navigator.browserLanguage || navigator.language || navigator.userLanguage).substr(0,2)
+			  } catch(e) {
+				return "en";
+			  }
+			}
+			
 			var query = request.term;
+			
 			$.ajax({
-				url: "http://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1&q="+query+"&format=5&alt=json&callback=?",  
+				url: "http://suggestqueries.google.com/complete/search?hl=" + lang + "&ds=yt&client=youtube&hjson=t&cp=1&q="+query+"&format=5&alt=json&callback=?",  
 				dataType: 'jsonp',
 				success: function(data, textStatus, request) { 
 				   response( $.map( data[1], function(item) {
@@ -574,22 +578,12 @@ $(function() {
 	
 	// todo
 	$('#player1').on("YTPStart",function(){
-		var player1 = $('#player1').get(0);
+		var player1 = $('#player1');
 		var videoData = player1.videoData;
 		
-		// set text
-		$('#p1-title').text(videoData.title);
-		$('#p1-duration').text(formatTime(videoData.duration));
 		
-		  			// $("#example01r").find(".outro").fadeOut(0);
-		  			// $("#example01r").find(".intro").fadeIn(0);
-		// $('#player1').tooltipster('update', videoData.title);
+		player1.setYTPVolume($('#p1-slider .v-slider').slider('value'));
 		
-//		// set background
-//		$('body').css('background','url('+ videoData.thumbnail.hqDefault + ') no-repeat center center fixed');
-//		$('body').css('background-size','cover');
-//		
-	
         //$.ajax({
 //            type: "POST",
 //			dataType:"json",
@@ -604,17 +598,11 @@ $(function() {
 
 	// todo
 	$('#player2').on("YTPStart",function(){
-		var player2 = $('#player2').get(0);
+		var player2 = $('#player2');
 		var videoData = player2.videoData;
 		
-		// $('#p2-title').text(videoData.title);
-		// $('#p2-duration').text(formatTime(videoData.duration));
-		// $('#player2').tooltipster('update', videoData.title);
+		player2.setYTPVolume($('#p2-slider .v-slider').slider('value'));
 		
-		// set background
-//		$('body').css('background','url('+ videoData.thumbnail.hqDefault + ') no-repeat center center fixed');
-//		$('body').css('background-size','cover');
-//		
         //$.ajax({
 //            type: "POST",
 //			dataType:"json",
@@ -743,24 +731,16 @@ $(function() {
 	
 		$('.pleft').hover(
 		function(){
-			$(this).text('<<<<<');
-			$(this).lettering().animateLetters({top:0,opacity:1},{top:20,opacity:0},{randomOrder:true,time:100,reset:true},function()
-			{
-				$(this).lettering().animateLetters({top:0,opacity:1},null,{randomOrder:true,time:0,reset:true});
-			});
+			$(this).animate({opacity:0.75},"fast");
 		},function(){
-			$(this).text('');
+			$(this).stop(true,false).animate({opacity:0},"fast");
 		});
 		
 		$('.pright').hover(
 		function(){
-			$(this).text('>>>>>');
-			$(this).lettering().animateLetters({top:0,opacity:1},{top:20,opacity:0},{randomOrder:true,time:100,reset:true},function()
-			{
-				$(this).lettering().animateLetters({top:0,opacity:1},null,{randomOrder:true,time:0,reset:true});
-			});
+			$(this).animate({opacity:0.75},"fast");
 		},function(){
-			$(this).text('');
+			$(this).stop(true,false).animate({opacity:0},"fast");
 		});
 		
 		// set up result tooltip
