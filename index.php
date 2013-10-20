@@ -96,7 +96,9 @@ session_start();
   <div id="container">
     <input id="hideNshow" type="hidden" value="hide/show">
     <input id="muteNunmute" type="hidden" value="mute/unmute">
-    <div id="player-wrapper" class="clearfix">
+    <div id="player-fixed">
+    <div id="player-wrapper">
+    <div id="p1p2" class="clearfix">
       <div id="p1-wrapper" class="float-left">
         <div id="p1-info">
           <div id="p1-title">&nbsp; </div>
@@ -121,15 +123,17 @@ session_start();
             <span class="v-r-volume"></span>
 		</div><!-- /#p2-slider -->
       </div><!-- /#p2-wrapper -->
-    </div><!-- /#player-wrapper -->
-	<div id="mix-slider" class="mix-slider-wrapper clearfix">
+    </div>
+      <div id="mix-slider" class="mix-slider-wrapper clearfix">
 		<span class="v-tooltip"></span>
 		<span class="v-l-volume"></span>
 		<div class="mix-v-slider"></div>
 		<span class="v-r-volume"></span>
-	</div><!-- /#mix-slider -->
-    <div id="resultArea" class="clearfix"><ul id="result"></ul></div>
+	  </div><!-- /#mix-slider -->
+    </div><!-- /#player-wrapper -->
+    </div><!-- /#player-fixed -->
   </div><!-- /#container -->
+  <div id="resultArea" class="clearfix"><ul id="result"></ul></div>
   <footer></footer>
   <p id="back-top"> <a href="top"><img src="image/193.png" title="Back to Top"</a> </p>
 </div><!-- /#wrapper -->
