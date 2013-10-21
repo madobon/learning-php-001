@@ -309,7 +309,7 @@ $(function() {
 	
 	// when loaded events
 	$(window).load(function(){
-    	$(".loadingWrap").fadeOut(1000);
+    	$(".loadingWrap").delay(1500).fadeOut(500);
 	});
 	
 	// keyup events
@@ -723,7 +723,7 @@ $(function() {
 					.append(con));
 					
 			// hide the item and put in ul.
-			$(str).hide().prependTo('#result');
+			$(str).hide().appendTo('#result');
 			
 		});
 		
@@ -790,7 +790,7 @@ $(function() {
     	});
     
 		// fadein the list
-		$('#result li').fadeIn(1500);
+		$('#result li').fadeIn(1000);
 		
 		// update flag
 		searchedOnce = true;
