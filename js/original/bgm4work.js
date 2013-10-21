@@ -307,9 +307,19 @@ $(function() {
 		revert: "invalid"
 	});
 	
-	// when loaded events
+	// load events
 	$(window).load(function(){
     	$(".loadingWrap").delay(1500).fadeOut(500);
+	});
+	
+	// scroll events
+	$(window).scroll(function() {
+		var total = $(document).height();
+		var position = $(window).scrollTop() + $(window).height();
+		
+		if(position >= total - 100){
+			$("#search").click();
+		}
 	});
 	
 	// keyup events
