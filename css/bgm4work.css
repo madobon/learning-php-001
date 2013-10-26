@@ -89,7 +89,7 @@ header {
 }
 #resultArea {
 	width:1010px;
-	margin: 545px auto 0;
+	margin: 545px auto 50px;
 	z-index:9000;
 }
 #resultMsg {
@@ -259,10 +259,21 @@ header {
     margin-top: -50px;
     margin-left: -50px;
 }
+.result-loading{
+    width: 100%;
+}
+.result-loading img{
+	display:block;
+	margin: 0 auto;
+}
 
 /* =========================================================
  parts style
 ========================================================= */
+
+.hidden {
+	display:none;
+}
 
 .float-left {
 	float: left;

@@ -133,9 +133,14 @@ session_start();
     </div><!-- /#player-wrapper -->
     </div><!-- /#player-fixed -->
   </div><!-- /#container -->
-  <div id="resultArea" class="clearfix"><ul id="result"></ul></div>
+  <div id="resultArea" class="clearfix">
+  <ul id="result"></ul>
+  <div class="result-loading hidden">
+	<img src="image/now-loading2.gif">
+  </div>
+  </div>
   <footer></footer>
-  <p id="back-top"> <a href="top"><img src="image/193.png" title="Back to Top"</a> </p>
+  <p id="back-top"><a href="javascript:void(0);"><img src="image/193.png" title="Back to Top"</a></p>
 </div><!-- /#wrapper -->
 <!-- .loadingWrap -->
 <div class="loadingWrap">
