@@ -89,7 +89,7 @@ header {
 }
 #resultArea {
 	width:1010px;
-	margin: 545px auto 50px;
+	margin: 105px auto 50px;
 	z-index:9000;
 }
 #resultMsg {
@@ -352,3 +352,7 @@ header {
 	border-bottom:dotted;
 }
 .ui-helper-hidden-accessible { display:none; }
+
+#fb-plugin {
+	margin-top:185px;
+}

@@ -352,6 +352,7 @@ $(function() {
 			case 13: // [Enter]
 				if (e.target.tagName == 'INPUT'){
 					$('#search').click();
+					$("#q").autocomplete('close');
 					break;
 				}
     		case 119: // [F8] play/pause

@@ -133,6 +133,7 @@ session_start();
     </div><!-- /#player-wrapper -->
     </div><!-- /#player-fixed -->
   </div><!-- /#container -->
+  <div id="fb-plugin" class="fb-like-box" data-href="http://www.facebook.com/BGM4work" data-width="1060" data-height="250" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
   <div id="resultArea" class="clearfix">
   <ul id="result"></ul>
   <div class="result-loading hidden">
