@@ -130,6 +130,7 @@ session_start();
 		<div class="mix-v-slider"></div>
 		<span class="v-r-volume"></span>
 	  </div><!-- /#mix-slider -->
+      <div id="arrow"><a><img src="image/arrow_up.png"></a></div>
     </div><!-- /#player-wrapper -->
     </div><!-- /#player-fixed -->
   </div><!-- /#container -->

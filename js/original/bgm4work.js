@@ -434,6 +434,21 @@ $(function() {
         }
     });
     
+	// scroll body to 0px on click
+    $('#arrow a').click(function () {
+        var image = $('#arrow img');
+		
+		if(image.attr('src') == "image/arrow_up.png"){
+			$('#container').animate({top:-243},'normal');
+			image.attr('src','image/arrow_down.png');
+		} else {
+			$('#container').animate({top:100},'normal');
+			image.attr('src','image/arrow_up.png');
+		}
+		
+        return false;
+    });
+	
     // scroll body to 0px on click
     $('#back-top a').click(function () {
         $('body,html').animate({
