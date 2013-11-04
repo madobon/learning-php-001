@@ -18,7 +18,7 @@ if ($q && $maxResults) {
 	
 	// use google library
 	require_once 'Google_Client.php';
-	require_once 'contrib/Google_YoutubeService.php';
+	require_once 'contrib/Google_YouTubeService.php';
 	
 	// use original library
 	require_once 'constants.php';
@@ -48,6 +48,7 @@ if ($q && $maxResults) {
 		$searchList = $youtube -> search -> listSearch('id,snippet', $param1);
 		
 		// connnect to database
+/*
 		$dbh = connectDb();
 		
 		// insert into search term
@@ -58,6 +59,7 @@ if ($q && $maxResults) {
 		if(!$flag){
 			throw new PDOException('failed to insert');
 		}
+*/
 
 		$videoIdList = array();
 		

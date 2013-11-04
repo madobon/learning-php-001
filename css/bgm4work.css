@@ -360,5 +360,6 @@ header {
 .ui-helper-hidden-accessible { display:none; }
 
 #fb-plugin {
+	height:250px;
 	margin-top:185px;
 }

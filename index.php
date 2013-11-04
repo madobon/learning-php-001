@@ -38,6 +38,7 @@ session_start();
 <script src="js/plugin/lettering/jquery.lettering.js"></script>
 <script src="js/plugin/lettering-animate/jquery.lettering.animate.compressed.js"></script>
 <script src="js/plugin/jgrowl/jquery.jgrowl.min.js"></script>
+<script src="js/plugin/pageslide/jquery.pageslide.min.js"></script>
 <script src="js/original/bgm4work.js"></script>
 <link rel="stylesheet" href="css/html5-doctor-reset-stylesheet.min.css" >
 <link rel="stylesheet" href="css/bgm4work.css" >
@@ -46,6 +47,7 @@ session_start();
 <link rel="stylesheet" href="js/plugin/tooltipster/css/tooltipster.css" >
 <link rel="stylesheet" href="css/slider.css" >
 <link rel="stylesheet" href="css/jquery.jgrowl.css" >
+<link rel="stylesheet" href="css/jquery.pageslide.css" >
 <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Quicksand' >
 <title>BGM4work (beta)</title>
 </head>
@@ -142,7 +144,7 @@ session_start();
   </div>
   </div>
   <footer></footer>
-  <p id="back-top"><a href="javascript:void(0);"><img src="image/193.png" title="Back to Top"</a></p>
+  <p id="back-top"><a href="javascript:void(0);"><img src="image/193.png" title="Back to Top"></a></p>
 </div><!-- /#wrapper -->
 <!-- .loadingWrap -->
 <div class="loadingWrap">
